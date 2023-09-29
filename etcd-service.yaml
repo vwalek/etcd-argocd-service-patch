@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    metrics.metric.com/port: '9002' 
+    metrics.metric.com/tls.ca.crt: 'configmap:openshift-config:etcd-metric-serving-ca:ca-bundle.crt'
+    metrics.metric.com/tls.crt: 'secret:openshift-config:etcd-metric-client:tls.crt'
+    metrics.metric.com/tls.key: 'secret:openshift-config:etcd-metric-client:tls.key'
+  name: etcd
+  namespace: openshift-etcd
